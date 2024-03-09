@@ -4,7 +4,8 @@ const app = require('express').Router();
 const uuid = require('../helpers/uuid');
 
 // Helper functions for reading and writing to the JSON file
-const { readFromFile, readAndAppend } = require('../helpers/fsUtils');
+const { readFromFile, readAndAppend, writeToFile, readAndDelete } = require('../helpers/fsUtils');
+const { response } = require('express');
 
 // GET Route for retrieving all the notes
 app.get('/', (req, res) => {
@@ -44,36 +45,10 @@ app.post('/', (req, res) => {
 });
 
 app.delete('/:id', (req, res) => {
-    console.log(req.params.id);
-
-    // Step 1
-
-    // Filter the array of objects to get only the values whose id is NOT EQUALS to req.params.id
-    // After Filter
-    // [
-    //     {
-    //         "title": "Make Bed",
-    //         "text": "Remove old bedding.\nAdd new clean bedding.",
-    //         "id": "fa8b"
-    //     },
-    //     {
-    //         "title": "Make Bed",
-    //         "text": "Remove old bedding.\nAdd new clean bedding.",
-    //         "id": "4byz"
-    //     },
-    //     {
-    //         "title": "Make Bed",
-    //         "text": "Remove old bedding.\nAdd new clean bedding.",
-    //         "id": "a01w"
-    //     }
-    // ]
-
-
-    // Step 2
-    // Write the db.json file with the new array of objects above
-
-    // Step 3
-    // Send the response back with the approprite status code
+  console.info(`${req.method} request received to delete note`);
+  const {id} = req.params;
+  readAndDelete(id, `./db/db.json`)
+  res.json('Error in deleting note')
 });
 
 module.exports = app;
