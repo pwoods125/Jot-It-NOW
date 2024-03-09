@@ -1,22 +1,17 @@
 [
     {
-        "title": "Test Title",
-        "text": "Test text",
-        "id": "f864"
+        "title": "Go to the gym",
+        "text": "Put on gym clothes.\nPut on ear pods.\nPut on spotify playlist.\nHead to gym. ",
+        "id": "f94a"
     },
     {
         "title": "Make Bed",
-        "text": "Remove old bedding.\nAdd new clean bedding.",
-        "id": "fa8b"
+        "text": "Remove bedding.\nAdd clean bedding.",
+        "id": "0ad4"
     },
     {
-        "title": "Make Bed",
-        "text": "Remove old bedding.\nAdd new clean bedding.",
-        "id": "4byz"
-    },
-    {
-        "title": "Make Bed",
-        "text": "Remove old bedding.\nAdd new clean bedding.",
-        "id": "a01w"
+        "title": "Make breakfast",
+        "text": "Prepare and cook the pancakes.\nCook the eggs, scrambled with cheese.\nHeat up the fully cooked turkey sausage links. ",
+        "id": "245d"
     }
 ]

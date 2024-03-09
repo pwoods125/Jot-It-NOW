@@ -31,4 +31,23 @@ const readAndAppend = (content, file) => {
   });
 };
 
-module.exports = { readFromFile, writeToFile, readAndAppend };
+// Custom function to enable delete notes.
+const readAndDelete = (id, file) => {
+  fs.readFile(file, 'utf-8', (err, data) => {
+    if (err) {
+      console.error(err);
+    } else {
+      let parsedData = JSON.parse(data);
+      // For loop to loop through parsed JSON data 
+      for (let i = 0; i < parsedData.length; i++) {
+        if (parsedData[i].id === id) {
+          parsedData.splice(i, 1);
+        }
+      }
+          // Write to the JSON file with the custom function
+      writeToFile(file, parsedData);
+    }
+  })
+}
+
+module.exports = { readFromFile, writeToFile, readAndAppend, readAndDelete };
